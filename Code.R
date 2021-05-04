@@ -148,7 +148,7 @@ rmse_results <- data.frame(METHOD = "Simple Average Model", RMSE = mu_model )
 
 # First Result
 
-rmse_results
+rmse_results %>% knitr::kable()
 
 # 
 # SECOND MODEL
@@ -302,6 +302,34 @@ rmse_results %>% knitr::kable()
 #
 
 # Now we will combine the Genres with the previous Movies as well as Users
+
+# We will explore the distribution of the top 20 different Genres in the Training Set 
+# with the following chart
+
+train_set %>% 
+  group_by(genres) %>%
+  summarise(num_movies = n()/1000) %>%
+  arrange(desc(num_movies)) %>%
+  top_n(20) %>%
+  ggplot(aes(x = genres, y= num_movies)) +
+  geom_bar( colour= "blue", fill="light green",stat='identity') +
+  labs(title = " DISTRIBUTION OF TOP 20 GENRES") +
+  xlab("GENRES") + 
+  ylab("NUMBER OF MOVIES IN THOUSANDS") + 
+  theme(plot.title = element_text(color = "blue", size = 8, 
+                                  face = "bold", hjust = 0.5)) +
+  theme(axis.title.x = element_text(color = "grey", size = 7, 
+                                    face = "bold", hjust = 0.5)) +
+  theme(axis.title.y = element_text(color = "grey", size = 7, 
+                                    face = "bold", hjust = 0.5)) +
+  theme(axis.text.x = element_text(color = "light blue", size = 7, 
+                                   face = "bold", hjust = 0.5, 
+        angle = 90)) +
+  theme(axis.text.y = element_text(color = "light blue", size = 7, 
+                                   face = "bold", hjust = 0.5)) 
+ 
+
+# We will explore the effect of Genres combined with the previous two selectors
 
 # Calculate the new genres combining with previous Movies and Users
 
