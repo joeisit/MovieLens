@@ -152,7 +152,7 @@ rmse_results %>% knitr::kable()
 
 The first model was very basic, now exploring more the data with a chart, it is shown that some movies get higher ratings than others:
 
-```{r Generate Chart, echo=FALSE, fig.height=3, fig.width=3}
+```{r Generate Chart, echo=FALSE, fig.height=3, fig.width=6, fig.align='center'}
 test_set %>% 
 group_by(movieId) %>%
 summarize(howmany = n(), average = mean(rating)) %>%
@@ -163,15 +163,15 @@ theme_light() +
 labs(title = " COMPARING EVALUATIONS AGAINST THEIR AVERAGE RATINGS") +
 xlab("MEAN OF RATINGS") + 
 ylab("NUMBER OF EVALUATIONS") + 
-theme(plot.title = element_text(color = "blue", size = 11, 
+theme(plot.title = element_text(color = "blue", size = 9, 
                                   face = "bold", hjust = 0.5)) +
-theme(axis.title.x = element_text(color = "grey", size = 10, 
+theme(axis.title.x = element_text(color = "grey", size = 8, 
                                     face = "bold", hjust = 0.5)) +
-theme(axis.title.y = element_text(color = "grey", size = 10, 
+theme(axis.title.y = element_text(color = "grey", size = 8, 
                                     face = "bold", hjust = 0.5)) +
-theme(axis.text.x = element_text(color = "light blue", size = 10, 
+theme(axis.text.x = element_text(color = "light blue", size = 8, 
                                     face = "bold", hjust = 0.5)) +
-theme(axis.text.y = element_text(color = "light blue", size = 10, 
+theme(axis.text.y = element_text(color = "light blue", size = 8, 
                                    face = "bold", hjust = 0.5)) +
 annotate("rect", xmin=2.2, xmax=4.5, ymin=500, ymax=6500, alpha=0.2, 
            fill="light yellow", color= "black")
@@ -197,7 +197,7 @@ These $b_i$ are also refered as the "BIAS".
 
 In the following table is shown the distribution of the BIAS
 
-```{r Output BIAS, echo=FALSE, fig.height=3, fig.width=3}
+```{r Output BIAS, echo=FALSE, fig.height=3, fig.width=3, fig.align='center'}
 movie_avgs %>%
   ggplot(aes(b_i)) +
   geom_histogram(bins = 10, colour= "blue", fill="light green") +
@@ -267,17 +267,17 @@ Let's explore these effect for users that have rated more than 100 movies in a c
 
 The following table shows this relationship:
 
-```{r User Eval Chart, echo=FALSE, fig.height=3, fig.width=3}
+```{r User Eval Chart, echo=FALSE, fig.height=3, fig.width=4, fig.align='center'}
 train_set %>% 
   group_by(userId) %>% 
   summarize(b_u = mean(rating)) %>% 
   filter(n()>=100) %>%
   ggplot(aes(b_u)) +
   geom_histogram(bins = 30, colour= "blue", fill="light green") +
-  labs(title = " DISTRIBUTION OF AVERAGE RATINGS OF USERS THAT EVALUATED MORE THAN 100 MOVIES") +
+  labs(title = " AVERAGE RATINGS OF USERS THAT EVALUATED MORE THAN 100 MOVIES") +
   xlab("AVERAGE RATING") + 
   ylab("NUMBER OF EVALUATIONS") + 
-  theme(plot.title = element_text(color = "blue", size = 8, 
+  theme(plot.title = element_text(color = "blue", size = 7, 
                                   face = "bold", hjust = 0.5)) +
   theme(axis.title.x = element_text(color = "grey", size = 7, 
                                     face = "bold", hjust = 0.5)) +
@@ -336,6 +336,8 @@ rmse_results <- bind_rows(rmse_results,
                           RMSE = movie_user_result))
 ```
 
+\pagebreak
+
 This is the updated \textcolor{green}{$\textbf{rmse\_results}$} table:
 
 ```{r Show table 3, echo=FALSE}
@@ -353,7 +355,7 @@ Another optimization to the model is to consider if the genres have any influenc
 
 We show a table of the top 20 genres and the amount of movies within that genre:
 
-```{r genre table, echo=FALSE, fig.height=3, fig.width=4}
+```{r genre table, echo=FALSE, fig.height=3, fig.width=4, fig.align='center'}
 train_set %>% 
   group_by(genres) %>%
   summarise(num_movies = n()/1000) %>%
@@ -579,7 +581,7 @@ final_result
 
 \begin{center}
 
-\Large { \textcolor{blue}{Conclusion:} }
+\Large { \textcolor{blue}{Conclution:} }
 
 \end{center}
 
