@@ -2,7 +2,7 @@
 #     CODE FOR THE FINAL REPORT OF MOVIELENS     #
 ##################################################
 # Author: José Ramón Riesgo Escovar              #
-# Date: May 2021                         #
+# Date: May 2021                                 #
 ##################################################
 
 #
