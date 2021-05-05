@@ -163,7 +163,7 @@ rmse_results %>% knitr::kable()
 
 The first model was very basic, now exploring more the data with a chart, it is shown that some movies get higher ratings than others:
 
-```{r Generate Chart, echo=FALSE, fig.align='center', fig.height=3, fig.width=5}
+```{r Generate Chart, echo=FALSE, fig.align='center', fig.height=2.5, fig.width=5}
 test_set %>% 
 group_by(movieId) %>%
 summarize(howmany = n(), average = mean(rating)) %>%
@@ -208,22 +208,22 @@ These $b_i$ are also refered as the "BIAS".
 
 In the following table is shown the distribution of the BIAS
 
-```{r Output BIAS, echo=FALSE, fig.height=3, fig.width=3, fig.align='center'}
+```{r Output BIAS, echo=FALSE, fig.align='center', fig.height=2, fig.width=2}
 movie_avgs %>%
   ggplot(aes(b_i)) +
   geom_histogram(bins = 10, colour= "blue", fill="light green") +
   labs(title = " DISTRIBUTION OF BIAS") +
   xlab("VALUES") + 
   ylab("NUMBER OF EVALUATIONS") + 
-  theme(plot.title = element_text(color = "blue", size = 11, 
+  theme(plot.title = element_text(color = "blue", size = 9, 
                                   face = "bold", hjust = 0.5)) +
-  theme(axis.title.x = element_text(color = "grey", size = 10, 
+  theme(axis.title.x = element_text(color = "grey", size = 8, 
                                     face = "bold", hjust = 0.5)) +
-  theme(axis.title.y = element_text(color = "grey", size = 10, 
+  theme(axis.title.y = element_text(color = "grey", size = 8, 
                                     face = "bold", hjust = 0.5)) +
-  theme(axis.text.x = element_text(color = "light blue", size = 10, 
+  theme(axis.text.x = element_text(color = "light blue", size = 8, 
                                    face = "bold", hjust = 0.5)) +
-  theme(axis.text.y = element_text(color = "light blue", size = 10, 
+  theme(axis.text.y = element_text(color = "light blue", size = 8, 
                                    face = "bold", hjust = 0.5))
 ```
 
