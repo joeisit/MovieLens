@@ -19,9 +19,11 @@ May 2020
 
 \begin{center}
 
-\Large { \textcolor{blue}{Introduction to the Report} }
+\Large { \textcolor{blue}{\textbf{INTRODUCTION TO THE REPORT} } }
+
 
 \end{center}
+
 
 This report is one of the final projects for the course \textcolor{greenJoe}{\textbf{HarvardX: PH125.9x Data Science: Capstone}} the goal is to demonstrate the acquire skills within R in the field of Data Science, in order to solve real world problems.
 
@@ -94,15 +96,20 @@ test_set <- test_set %>%
   semi_join(train_set, by = "genres")
 ```
 
+\pagebreak
+
 \begin{center}
 
-\Large { \textcolor{blue}{Methods and Analysis:} }
+\Large { \textcolor{blue} {\textbf{MODELS AND ANALYSIS:} } }
+
 
 \end{center}
+
 
 In this section, there will be shown several models; starting with the most general one and concluding with a more precise, meaning this last one is the "best" possible model to achieve the goal mention above.
 
 \begin{center}
+
 
 \large { \textcolor{blueJoe}{\textbf{FIRST MODEL}} }
 
@@ -137,8 +144,6 @@ The results of each model are captured in the table of "results of the RMSE" of 
 ```{r Results First Entry, echo=TRUE}
 rmse_results <- data.frame(METHOD = "Simple Average Model", RMSE = mu_model )
 ```
-
-\pagebreak
 
 The result of the first algorithm is:
 
@@ -523,7 +528,7 @@ rmse_results %>% knitr::kable()
 
 \begin{center}
 
-\Large { \textcolor{blue}{Final Validation of the "Best Model:} }
+\Large { \textcolor{blue}{\textbf{FINAL VALIDATION OF BEST MODEL} } }
 
 \end{center}
 
@@ -595,9 +600,11 @@ final_result
 
 \begin{center}
 
-\Large { \textcolor{blue}{Conclusion:} }
+\Large { \textcolor{blue}{\textbf{CONCLUSION} } }
 
 \end{center}
+
+
 
 This report show very clearly how we can add more relevant predictors and combined them with a final regularization effect and achieve a very reasonable result obtaining \textcolor{redJoe}{\textbf{.8644501}} tha is below the target objective of  \textcolor{blueJoe}{\textbf{.86490}} in the RSME function.
 
